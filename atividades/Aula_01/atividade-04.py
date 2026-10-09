@@ -1,0 +1,5 @@
+print("Passos para ir da minha casa até o senac")
+print("Saio de casa")
+print("Viro a direita")
+print("Sigo por poucos metros e viro a esquerda")
+print("Ando por mais um pouco e cheguei")
