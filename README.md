@@ -36,10 +36,51 @@ Testes com mais de duas possibilidades: classificação de notas, faixas de desc
 Escolha entre várias opções com `match`: dias da semana, meses do ano, menu de caixa eletrônico, calculadora com as quatro operações e conversão de metros para outras unidades.
 - `match.py`: exemplo da aula sobre `match` / `case`.
 
+### [Aula 09](atividades/Aula_09/) – Laço de repetição `while`
+Repetições controladas por um contador ou por uma condição: contagem crescente e decrescente, números pares, tabuada, soma acumulada, média de notas com parada pelo usuário (`break`), pedido de pastéis em loop e validação de senha.
+- `while.py`: exemplo da aula sobre `while`.
+
+### [Aula 10](atividades/Aula_10/) – Laço de repetição `for`
+Uso do `for` com `range()` (início, fim e passo): contagem crescente e decrescente, números pares, tabuada de um número digitado, soma de 1 a 100 e chamada de presença dos alunos.
+- `for.py`: exemplo da aula sobre `for`.
+
+### [Aula 11](atividades/Aula_11/) – Vetores (listas)
+Criação de listas, acesso por índice, uso de `len()` e alteração de elementos. Exercícios: lista de frutas, alunos, números, lista de compras digitada pelo usuário e inventário de um jogo.
+- `vetores.py`: listas de diferentes tipos e percorrendo uma lista com `for`.
+- `inserindoVetor.py`: inserção com `append()` e `insert()`.
+- `removendoVetor.py`: remoção com `pop()` e `remove()`.
+
+### [Aula 12](atividades/Aula_12/) – Percorrendo e pesquisando vetores
+Uso do `for` com `range(len(lista))` para listar itens numerados, preencher uma lista com dados digitados, contar aprovados e reprovados e pesquisar um nome dentro da lista.
+- `forVetore.py`: preenchendo e exibindo uma lista com `for`.
+- `pesquisaVetor.py`: busca de um elemento e da sua posição na lista.
+
+### [Aula 13](atividades/Aula_13/) – Matrizes
+Listas de listas (linhas e colunas): acesso por `matriz[linha][coluna]`, alteração de posições (como um mapa de assentos), percorrendo a matriz com dois `for` aninhados, notas de alunos e soma/média dos elementos.
+- `matriz.py`: exemplo da aula percorrendo e somando uma matriz.
+
+## Projeto – Sistema de restaurantes (orientação a objetos)
+
+A pasta [projeto/](projeto/) contém um pequeno sistema feito com classes, organizado em módulos dentro de [projeto/modelos/](projeto/modelos/):
+
+- [restaurante.py](projeto/modelos/restaurante.py) – classe `Restaurante`, com nome, categoria, estado ativo/inativo, avaliações e média das notas. Mantém a lista de todos os restaurantes criados (`listar_restaurantes()`).
+- [produto.py](projeto/modelos/produto.py) – classe `Produto`, com nome, preço, disponibilidade, avaliações e aplicação de desconto (`aplicar_desconto()`).
+- [pedido.py](projeto/modelos/pedido.py) – classe `Pedido`, que liga um restaurante a uma lista de produtos e calcula o total.
+- [avaliacao.py](projeto/modelos/avaliacao.py) – classe `Avaliacao`, com o cliente e a nota.
+
+O arquivo [main.py](projeto/main.py) cria restaurantes, produtos e um pedido e mostra o resultado. Ele também demonstra conceitos como atributos de classe e de instância, `@property`, `@classmethod`, o método `__str__` e a diferença entre `vars()` e `dir()`.
+
 ## Como executar
 
 Com o Python 3.10 ou mais recente instalado (necessário para o `match` da Aula 08), rode qualquer arquivo pelo terminal:
 
 ```bash
 python atividades/Aula_01/atividade-01.py
+```
+
+Para o projeto, entre na pasta `projeto` antes de executar, para que os imports de `modelos` funcionem:
+
+```bash
+cd projeto
+python main.py
 ```
