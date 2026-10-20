@@ -1,4 +1,5 @@
-from modelos.avaliacao import Avaliacao
+from models.avaliacao import Avaliacao
+from models.cardapio.itemCardapio import ItemCardapio
 
 class Restaurante:
     restaurantes = []  # lista de todas as instâncias
@@ -8,6 +9,7 @@ class Restaurante:
         self.categoria = categoria
         self._ativo = False
         self._avaliacoes = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
 
     @property
@@ -20,6 +22,10 @@ class Restaurante:
     def receber_Avaliacao(self, cliente, nota):
         avaliacao = Avaliacao(cliente, nota)
         self._avaliacoes.append(avaliacao)
+
+    def adicionar_item_cardapio(self, item):
+        if isinstance(item, ItemCardapio):
+            self._cardapio.append(item)
 
 
     @property

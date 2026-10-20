@@ -1,14 +1,12 @@
-from modelos.restaurante import Restaurante
-from modelos.produto import Produto
-from modelos.pedido import Pedido
-from modelos.avaliacao import Avaliacao
+from models.restaurante import Restaurante
+from models.produto import Produto
+from models.pedido import Pedido
+from models.avaliacao import Avaliacao
 
 restaurante_01 = Restaurante("Madá Pizzaria", "Italiana")
 restaurante_02 = Restaurante("Vinigucci Pizzaria", "Italiana")
 
-produto1 = Produto("Pizza portuguesa", 35.00)
-produto2 = Produto("Hamburguer", 28.00)
-produto3 = Produto("Macarrão ao molho branco", 40.00)
+Restaurante.adicionar_item_cardapio()
 
 produto3.aplicar_desconto(10)
 
@@ -30,6 +28,8 @@ print("===============================")
 print("Atributos de instancia (vars):")
 for nome, valor in vars(pedido).items():
     print(f"{nome}: {valor}")
+
+
 
 # dir(objeto) devolve uma LISTA com os NOMES de tudo que o objeto consegue
 # acessar: atributos de instância + métodos da classe + métodos herdados de

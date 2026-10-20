@@ -1,4 +1,4 @@
-from modelos.avaliacao import Avaliacao
+from models.avaliacao import Avaliacao
 
 class Produto:
     produtos = []
