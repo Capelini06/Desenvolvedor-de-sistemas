@@ -1,46 +1,33 @@
 from models.restaurante import Restaurante
-from models.produto import Produto
-from models.pedido import Pedido
-from models.avaliacao import Avaliacao
+from models.cardapio.prato import Prato
+from models.cardapio.bebida import Bebidas
+from models.cardapio.sobremesa import Sobremesa
+from models.endereco.enderecoEntrega import EnderecoEntrega
+from models.endereco.enderecoCobranca import EnderecoCobranca
 
-restaurante_01 = Restaurante("Madá Pizzaria", "Italiana")
-restaurante_02 = Restaurante("Vinigucci Pizzaria", "Italiana")
+restaurante_mada = Restaurante("Madá Pizzaria", "Italiana")
 
-Restaurante.adicionar_item_cardapio()
+pratoPizza01 = Prato("Pizza 4 queijos", 40.50, "Uma pizza com 4 tipos de queijo")
+bebidaSuco = Bebidas("Suco de uva", 10.50, "grande")
+sobremesaPudim = Sobremesa("Pudim de leite", 24.99, "leite condensado")
 
-produto3.aplicar_desconto(10)
+restaurante_mada.adicionar_item_cardapio(pratoPizza01)
+restaurante_mada.adicionar_item_cardapio(bebidaSuco)
+restaurante_mada.adicionar_item_cardapio(sobremesaPudim)
+restaurante_mada.adicionar_item_cardapio("Comida")
 
-Restaurante.listar_restaurantes()
-print()
-Produto.listar_produtos()
-print()
+entrega = EnderecoEntrega("Rua rio de janeiro - 348", "São josé dos pinhais", "Apartamento 403")
+cobranca = EnderecoCobranca("Rua josé mauricio higgins", "Curitiba", "12.345.678/0001-90")
 
-pedido = Pedido(restaurante_01, [produto1, produto2])
-print(pedido)
+restaurante_mada.adicionar_endereco(entrega)
+restaurante_mada.adicionar_endereco(cobranca)
 
-print("===============================")
-# vars(objeto) devolve o __dict__ do objeto: um dicionário só com os
-# atributos de INSTÂNCIA, ou seja, o que foi criado com self.algo no __init__.
-# Para o pedido, isso é {'restaurante': ..., 'itens': [...]}.
-# Métodos (calcular_total, __str__) NÃO aparecem, pois pertencem à classe.
-# Como é um dicionário, .items() permite pegar nome e valor de cada atributo.
+def main():
+    print()
+    restaurante_mada.exibir_cardapio
+    print()
+    restaurante_mada.resumo()
 
-print("Atributos de instancia (vars):")
-for nome, valor in vars(pedido).items():
-    print(f"{nome}: {valor}")
+if __name__ == "__main__":
+    main()
 
-
-
-# dir(objeto) devolve uma LISTA com os NOMES de tudo que o objeto consegue
-# acessar: atributos de instância + métodos da classe + métodos herdados de
-# object (__init__, __str__, __eq__, __class__...). Só nomes, sem valores.
-# Por isso é preciso filtrar:
-#   - not nome.startswith("__")       -> remove os métodos especiais (dunder)
-#   - not callable(getattr(...))      -> getattr busca o valor pelo nome e
-#                                        callable verifica se é função/método;
-#                                        assim sobram só os atributos de dados.
-
-print("Atributos filtrados de dir()):")
-for nome in dir(pedido):
-    if not nome.startswith("__") and not callable(getattr(pedido, nome)):
-        print(f"{nome}")
